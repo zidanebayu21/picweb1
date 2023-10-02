@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FormInput</title>
+</head>
+<body>
+<h1>
+  <a th:href="@{/manga/home}">HOME</a>
+</h1>
+
+<!--<form method="POST" th:attr="action=@{/manga/save}" th:object="${dto}" enctype="multipart/form-data" >-->
+<!--  <h1>Form Register</h1>-->
+
+
+<!--  <label for="nama">nama :</label>-->
+<!--  <input type="text" th:field="*{nama}" placeholder="nama" id="nama" />-->
+<!--  <br>-->
+<!--  <label for="serial">serial :</label>-->
+<!--  <input type="text" th:field="*{serial}" placeholder="serial" id="serial" />-->
+<!--  <br>-->
+<!--  <label for="halaman">halaman :</label>-->
+<!--  <input type="text" th:field="*{halaman}" placeholder="halaman" id="halaman" />-->
+
+<!--  <br><br>-->
+
+<!--  <label for="picture">picture :</label>-->
+<!--  <input type="file" th:field="*{picture}" placeholder="picture" id="picture" />-->
+<!--  <br>-->
+<!--  <button type="submit">Register</button>-->
+
+<!--  -->
+<!--</form>-->
+
+<br>
+<br>
+<br>
+
+
+<form class="form-container" method="POST" th:attr="action=@{/manga/multiple}" th:object="${dtomulti}" enctype="multipart/form-data">
+  <h1>Form Register</h1>
+
+  <label for="namanya">nama :</label>
+  <input type="text" th:field="*{nama}" placeholder="nama" id="namanya" />
+
+<!--  <label for="serialnya">serial :</label>-->
+<!--  <input type="text" th:field="*{serial}" placeholder="serial" id="serialnya" />-->
+
+  <label for="filenya">picture Batch :</label>
+  <input type="file" th:field="*{filenya}" placeholder="filenya" id="filenya" multiple /><br>
+
+  <button type="submit">Register</button>
+</form>
+
+<style>
+    .form-container {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-container label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-container button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</body>
+</html>

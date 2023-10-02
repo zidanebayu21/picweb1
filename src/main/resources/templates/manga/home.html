@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script src="../../static/jquery-3.6.0.js"></script>-->
+</head>
+<body>
+<h1>
+    <a th:href="@{/manga/register}">Register</a>
+</h1>
+<div class="table-container">
+    <table>
+        <thead>
+        <tr>
+            <th>nama</th>
+            <th>serial</th>
+            <th>halaman</th>
+            <th>id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="list : ${dto}" >
+            <td>
+                <a th:href="@{tampilan/{id}/{halaman}(id=${list.id}, halaman=${list.halaman})}" th:text="${list.nama}"></a>
+                <span></span>
+            </td>
+            <td>
+                <span th:text="${list.serial}"></span>
+            </td>
+            <td>
+                <span th:text="${list.halaman}"></span>
+            </td>
+            <td>
+                <span th:text="${list.id}"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .table-container {
+        margin: 20px;
+    }
+
+.table-container{
+  font-size: 24pt;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+    .table-container table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table-container th, .table-container td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+
+    .table-container th {
+        background-color: #f2f2f2;
+    }
+
+    .table-container a {
+        text-decoration: none;
+        color: blue;
+    }
+
+    .table-container a:hover {
+        text-decoration: underline;
+    }
+        .transparent-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.2; /* Atur kecerahan gambar sesuai kebutuhan */
+}
+</style>
+
+
+
+<img th:src="${imageUrl}" alt="Gambar" class="transparent-image">
+
+</body>
+</html>
